@@ -432,10 +432,24 @@
             font-weight: 700; color: var(--primary-color);
         }
 
-        /* --- CTA Section --- */
-        .cta-section {
-            background: linear-gradient(rgba(61, 95, 68, 0.85), rgba(61, 95, 68, 0.85)), url(https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600) no-repeat center center/cover;
-            color: var(--accent-color); padding: 100px 0;
+        .gallery-cta-panel {
+            margin-top: 70px;
+            padding: 55px 40px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(5, 13, 10, 0.45);
+            text-align: center;
+            box-shadow: 0 25px 65px rgba(5, 13, 10, 0.45);
+        }
+        .gallery-cta-panel h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .gallery-cta-panel p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.5rem;
         }
 
         /* --- Footer --- */
@@ -488,7 +502,7 @@
         .gallery-section {
             position: relative;
             padding: 120px 0 140px;
-            background: linear-gradient(135deg, rgba(8, 21, 16, 0.85), rgba(61, 95, 68, 0.85)), url('images/ada.jpg') center/cover;
+            background: linear-gradient(rgba(61, 95, 68, 0.85), rgba(61, 95, 68, 0.85)), url(https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600) no-repeat center center/cover;
             color: var(--accent-color);
             overflow: hidden;
         }
@@ -871,6 +885,11 @@
                     </div>
                 </div>
             </div>
+            <div class="gallery-cta-panel" data-aos="zoom-in">
+                <h3>Ready to Start Your Next Project?</h3>
+                <p>Let's build something extraordinary together. Contact us today for a free consultation and quote.</p>
+                <a href="#contact" class="btn btn-secondary btn-lg">Contact Us Now</a>
+            </div>
         </div>
     </section>
     <div class="gallery-lightbox" data-gallery-lightbox aria-hidden="true">
@@ -883,14 +902,6 @@
             <button class="lightbox-nav next" type="button" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
-    <section class="cta-section text-center">
-        <div class="container" data-aos="zoom-in">
-            <h2 class="display-5 fw-bold mb-4">Ready to Start Your Next Project?</h2>
-            <p class="lead mb-4">Let's build something extraordinary together. Contact us today for a free consultation and quote.</p>
-            <a href="#contact" class="btn btn-secondary btn-lg">Contact Us Now</a>
-        </div>
-    </section>
-	
     <footer id="contact" class="section pb-0">
         <div class="container">
             <div class="row">
