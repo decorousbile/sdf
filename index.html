@@ -503,62 +503,42 @@
             pointer-events: none;
         }
         .gallery-content {
-            max-width: min(1650px, 95vw);
+            width: 100%;
+            max-width: none;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            padding: 0 1.5rem;
+            padding: 0 3vw;
         }
-<<<<<<< ours
         .gallery-intro {
-<<<<<<< ours
-            position: relative;
-            padding-top: 10px;
-        }
-        .gallery-intro::after {
-            content: '';
-            display: table;
-            clear: both;
-=======
             display: grid;
-            grid-template-columns: minmax(260px, 380px) minmax(0, 1fr);
-            gap: 60px;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: 50px;
             align-items: center;
->>>>>>> theirs
         }
         .gallery-spotlight {
-<<<<<<< ours
-            float: right;
-            width: min(420px, 45%);
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            grid-auto-rows: minmax(170px, 1fr);
-=======
+            width: 100%;
             display: flex;
             flex-direction: column;
->>>>>>> theirs
             gap: 18px;
-            margin-left: 45px;
-            margin-bottom: 25px;
-            shape-outside: inset(0 round 24px);
         }
         .spotlight-row {
-            display: flex;
+            display: grid;
             gap: 18px;
         }
-        .spotlight-row.single .spotlight-item {
-            flex: 1;
-            height: 240px;
+        .spotlight-row.five {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
         }
-        .spotlight-row.duo .spotlight-item {
-            flex: 1;
-            height: 180px;
+        .spotlight-row.four {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
         .spotlight-item {
             position: relative;
             border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+            aspect-ratio: 4 / 3;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
         .spotlight-item img {
             width: 100%;
@@ -570,8 +550,6 @@
         .spotlight-item:hover img {
             transform: scale(1.05);
         }
-=======
->>>>>>> theirs
         .gallery-heading {
             max-width: 660px;
         }
@@ -611,44 +589,6 @@
             gap: 0.5rem;
             margin-top: 1.5rem;
             padding-inline: 2.5rem;
-        }
-        .gallery-wrapper {
-            position: relative;
-            margin-top: 60px;
-            width: 100%;
-        }
-        .gallery-track {
-            position: relative;
-            width: 100%;
-            min-height: 200px;
-        }
-        .gallery-item {
-            position: absolute;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.35));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .gallery-item:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.45);
-        }
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
         }
         .gallery-lightbox {
             position: fixed;
@@ -713,20 +653,6 @@
         .lightbox-nav.next {
             right: -26px;
         }
-        .lightbox-close {
-            position: absolute;
-            top: -16px;
-            right: -16px;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: none;
-            background: var(--secondary-color);
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-        }
         @media (max-width: 768px) {
             .lightbox-nav.prev {
                 left: 10px;
@@ -734,40 +660,33 @@
             .lightbox-nav.next {
                 right: 10px;
             }
-            .lightbox-close {
-                top: -10px;
-                right: -10px;
-            }
         }
         @media (max-width: 992px) {
             .gallery-content {
-                padding: 0 1rem;
+                padding: 0 1.5rem;
             }
-            .gallery-heading {
-                max-width: none;
+            .gallery-intro {
+                grid-template-columns: 1fr;
             }
-<<<<<<< ours
-            .gallery-spotlight {
-                float: none;
-                width: 100%;
-                margin: 0 auto 45px;
-                shape-outside: none;
+            .spotlight-row.five {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
-=======
->>>>>>> theirs
-            .gallery-wrapper {
-                margin-top: 40px;
+            .spotlight-row.four {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
         @media (max-width: 768px) {
             .gallery-section {
                 padding: 90px 0;
             }
-            .gallery-track {
-                min-height: 140px;
+            .spotlight-row.five {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-            .gallery-item {
-                border-radius: 14px;
+        }
+        @media (max-width: 576px) {
+            .spotlight-row.five,
+            .spotlight-row.four {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -908,51 +827,54 @@
     
     <section id="ourwork" class="gallery-section">
         <div class="gallery-content">
-            <div class="gallery-heading" data-aos="fade-right">
-                <p class="section-subtitle text-white">Our Work</p>
-                <h2>Spaces We’ve Brought To Life</h2>
-                <div class="gallery-divider"></div>
-                <p>From boutique buildouts to large-scale commercial interiors, every frame, panel, and finish is handled with master craftsmanship. Explore a snapshot of the projects that showcase our precision and signature aesthetic.</p>
-                <a class="btn btn-secondary gallery-cta" target="_blank" rel="noopener" href="https://www.instagram.com/sdf/">
-                    Follow us on Instagram <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="gallery-wrapper" data-justified-gallery data-row-height="230" data-gap="18">
-                <div class="gallery-track" data-gallery-track>
-                    <a href="images/79601210_444047869806050_7934918060476765940_n.jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/79601210_444047869806050_7934918060476765940_n.jpg" alt="Framing progress on a multi-room renovation" loading="lazy">
+            <div class="gallery-intro">
+                <div class="gallery-heading" data-aos="fade-right">
+                    <p class="section-subtitle text-white">Our Work</p>
+                    <h2>Spaces We’ve Brought To Life</h2>
+                    <div class="gallery-divider"></div>
+                    <p>From boutique buildouts to large-scale commercial interiors, every frame, panel, and finish is handled with master craftsmanship. Explore a snapshot of the projects that showcase our precision and signature aesthetic.</p>
+                    <a class="btn btn-secondary gallery-cta" target="_blank" rel="noopener" href="https://www.instagram.com/sdf/">
+                        Follow us on Instagram <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="images/20201006_132059.jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/20201006_132059.jpg" alt="Sleek drywall installation in a hospitality lobby" loading="lazy">
-                    </a>
-                    <a href="images/1000994817.jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/1000994817.jpg" alt="Acoustic ceiling grid in a modern office" loading="lazy">
-                    </a>
-                    <a href="images/f14e436.jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/f14e436.jpg" alt="Structural framing for mixed-use development" loading="lazy">
-                    </a>
-                    <a href="images/2023-12-31.jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/2023-12-31.jpg" alt="Feature wall with recessed lighting" loading="lazy">
-                    </a>
-                    <a href="images/edfrgt.jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/edfrgt.jpg" alt="Precision drywall finishing" loading="lazy">
-                    </a>
-                    <a href="images/2023-12-31 (1).jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/2023-12-31 (1).jpg" alt="Exposed framing ready for insulation" loading="lazy">
-                    </a>
-                    <a href="images/FormatFactoryWhatsApp-Image-2024-01-04-at-21.08.13_5ecb3d5a.jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/FormatFactoryWhatsApp-Image-2024-01-04-at-21.08.13_5ecb3d5a.jpg" alt="Custom ceiling details for residential living room" loading="lazy">
-                    </a>
-                    <a href="images/20201006_132059.jpg" class="gallery-item" data-gallery-item>
-                        <img src="images/20201006_132059.jpg" alt="Repeated hospitality lobby detail" loading="lazy">
-                    </a>
+                </div>
+                <div class="gallery-spotlight" data-aos="fade-left">
+                    <div class="spotlight-row five">
+                        <a href="images/1.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/1.jpg" alt="Framing progress on a multi-room renovation" loading="lazy">
+                        </a>
+                        <a href="images/2.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/2.jpg" alt="Sleek drywall installation in a hospitality lobby" loading="lazy">
+                        </a>
+                        <a href="images/3.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/3.jpg" alt="Acoustic ceiling grid in a modern office" loading="lazy">
+                        </a>
+                        <a href="images/4.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/4.jpg" alt="Structural framing for mixed-use development" loading="lazy">
+                        </a>
+                        <a href="images/5.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/5.jpg" alt="Feature wall with recessed lighting" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="spotlight-row four">
+                        <a href="images/6.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/6.jpg" alt="Precision drywall finishing" loading="lazy">
+                        </a>
+                        <a href="images/7.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/7.jpg" alt="Exposed framing ready for insulation" loading="lazy">
+                        </a>
+                        <a href="images/8.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/8.jpg" alt="Custom ceiling details for residential living room" loading="lazy">
+                        </a>
+                        <a href="images/9.jpg" class="spotlight-item" data-gallery-item>
+                            <img src="images/9.jpg" alt="Premium finishes for a contemporary condo" loading="lazy">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <div class="gallery-lightbox" data-gallery-lightbox aria-hidden="true">
         <div class="lightbox-inner">
-            <button class="lightbox-close" type="button" aria-label="Close gallery">&times;</button>
             <div class="lightbox-media">
                 <img src="" alt="" data-lightbox-image>
                 <p class="lightbox-caption" data-lightbox-caption></p>
@@ -1030,105 +952,12 @@
         };
         toggleNavState();
         window.addEventListener('scroll', toggleNavState, { passive: true });
-        const initJustifiedGalleries = () => {
-            const wrappers = Array.from(document.querySelectorAll('[data-justified-gallery]'));
-            if (!wrappers.length) return;
-
-            const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-            const waitForImage = (img) => new Promise((resolve) => {
-                if (img.complete && img.naturalWidth) {
-                    resolve();
-                } else {
-                    img.addEventListener('load', resolve, { once: true });
-                    img.addEventListener('error', resolve, { once: true });
-                }
-            });
-
-            const instances = [];
-
-            const performLayout = (instance) => {
-                const { wrapper, track, items, targetRow, gap } = instance;
-                const containerWidth = wrapper.clientWidth;
-                if (!containerWidth) return;
-                let offsetTop = 0;
-                let currentRow = [];
-                let aspectSum = 0;
-                const flushRow = (forceLast = false) => {
-                    if (!currentRow.length) return;
-                    const totalGap = gap * (currentRow.length - 1);
-                    const availableWidth = containerWidth - totalGap;
-                    const requestHeight = availableWidth / aspectSum;
-                    const isLastRow = forceLast || requestHeight > targetRow * 1.4;
-                    const height = isLastRow ? targetRow : clamp(requestHeight, targetRow * 0.85, targetRow * 1.35);
-                    const totalRowWidth = height * aspectSum + totalGap;
-                    let offsetLeft = isLastRow ? Math.max((containerWidth - totalRowWidth) / 2, 0) : 0;
-                    currentRow.forEach(({ element, aspect }) => {
-                        const width = height * aspect;
-                        element.style.width = `${width}px`;
-                        element.style.height = `${height}px`;
-                        element.style.left = `${offsetLeft}px`;
-                        element.style.top = `${offsetTop}px`;
-                        offsetLeft += width + gap;
-                    });
-                    offsetTop += height + gap;
-                    currentRow = [];
-                    aspectSum = 0;
-                };
-
-                instance.items.forEach((element, index) => {
-                    const aspect = parseFloat(element.dataset.aspect) || 1;
-                    currentRow.push({ element, aspect });
-                    aspectSum += aspect;
-                    const totalGap = gap * (currentRow.length - 1);
-                    const availableWidth = containerWidth - totalGap;
-                    const isLast = index === instance.items.length - 1;
-                    if (aspectSum * targetRow >= availableWidth || isLast) {
-                        flushRow(isLast);
-                    }
-                });
-
-                track.style.height = `${Math.max(0, offsetTop - gap)}px`;
-            };
-
-            wrappers.forEach((wrapper) => {
-                const track = wrapper.querySelector('[data-gallery-track]');
-                const items = Array.from(wrapper.querySelectorAll('[data-gallery-item]'));
-                if (!track || !items.length) return;
-                const targetRow = Number(wrapper.dataset.rowHeight) || 220;
-                const gap = Number(wrapper.dataset.gap) || 16;
-                Promise.all(
-                    items.map((item) => {
-                        const img = item.querySelector('img');
-                        if (!img) return Promise.resolve();
-                        return waitForImage(img).then(() => {
-                            const aspect = img.naturalWidth && img.naturalHeight ? img.naturalWidth / img.naturalHeight : 1;
-                            item.dataset.aspect = aspect;
-                        });
-                    })
-                ).then(() => {
-                    const instance = { wrapper, track, items, targetRow, gap };
-                    instances.push(instance);
-                    performLayout(instance);
-                });
-            });
-
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                if (!instances.length) return;
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    instances.forEach(performLayout);
-                }, 150);
-            });
-        };
-        initJustifiedGalleries();
         const initGalleryLightbox = () => {
             const lightbox = document.querySelector('[data-gallery-lightbox]');
             const items = Array.from(document.querySelectorAll('[data-gallery-item]'));
             if (!lightbox || !items.length) return;
             const imageEl = lightbox.querySelector('[data-lightbox-image]');
             const captionEl = lightbox.querySelector('[data-lightbox-caption]');
-            const closeBtn = lightbox.querySelector('.lightbox-close');
             const prevBtn = lightbox.querySelector('.lightbox-nav.prev');
             const nextBtn = lightbox.querySelector('.lightbox-nav.next');
             let currentIndex = 0;
@@ -1165,7 +994,6 @@
                     openLightbox(index);
                 });
             });
-            closeBtn?.addEventListener('click', closeLightbox);
             prevBtn?.addEventListener('click', showPrev);
             nextBtn?.addEventListener('click', showNext);
             lightbox.addEventListener('click', (event) => {
