@@ -588,6 +588,14 @@
         .contact-note {
             color: #6c757d;
         }
+        #quoteModal .modal-content {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+        }
+        #quoteModal .modal-body {
+            padding-top: 0;
+        }
 
         /* --- Footer --- */
         footer {
@@ -873,7 +881,7 @@
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link" href="#ourwork">Our Work</a></li>
                 </ul>
-                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                <a href="#quoteModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quoteModal">Get a Quote</a>
             </div>
         </div>
     </nav>
@@ -887,7 +895,7 @@
                 <div class="col-lg-8" data-aos="fade-up">
                     <div class="hero-content">
                         <h1>Turning spaces into stories.</h1>
-                        <a href="#contact" class="btn btn-secondary">Request a Free Quote</a>
+                        <a href="#quoteModal" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#quoteModal">Request a Free Quote</a>
                     </div>
                 </div>
             </div>
@@ -1118,31 +1126,17 @@
                         </div>
                         <form class="contact-form" action="mailto:office@sdf.com" method="post" enctype="text/plain">
                             <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label" for="contact-name">Full Name</label>
-                                    <input type="text" id="contact-name" name="Full Name" class="form-control" placeholder="Your name" required>
+                                <div class="col-12">
+                                    <label class="form-label" for="contact-name">Name</label>
+                                    <input type="text" id="contact-name" name="Name" class="form-control" placeholder="Your name" required>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-12">
                                     <label class="form-label" for="contact-email">Email</label>
                                     <input type="email" id="contact-email" name="Email" class="form-control" placeholder="you@email.com" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label" for="contact-phone">Phone</label>
-                                    <input type="tel" id="contact-phone" name="Phone" class="form-control" placeholder="987-147-9633">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label" for="project-type">Project Type</label>
-                                    <select id="project-type" name="Project Type" class="form-select">
-                                        <option value="Commercial build-out">Commercial build-out</option>
-                                        <option value="Residential">Residential</option>
-                                        <option value="Drywall & spackle">Drywall & spackle</option>
-                                        <option value="Acoustical ceilings">Acoustical ceilings</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
                                 <div class="col-12">
-                                    <label class="form-label" for="contact-message">How can we help?</label>
-                                    <textarea id="contact-message" name="Project Details" rows="4" class="form-control" placeholder="Tell us about your project, timeline, or any specs we should know." required></textarea>
+                                    <label class="form-label" for="contact-message">Your Message</label>
+                                    <textarea id="contact-message" name="Message" rows="4" class="form-control" placeholder="Tell us about your project, timeline, or any specs we should know." required></textarea>
                                 </div>
                                 <div class="col-12">
                                     <div class="d-flex flex-wrap align-items-center gap-3">
@@ -1157,6 +1151,59 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <div class="contact-card">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
+                            <h4 class="mb-0" id="quoteModalLabel">Get a Quote</h4>
+                            <span class="contact-badge"><i class="fas fa-bolt"></i> Response in under 24 hours</span>
+                        </div>
+                        <form class="contact-form" action="mailto:office@sdf.com" method="post" enctype="text/plain">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="quote-name">Full Name</label>
+                                    <input type="text" id="quote-name" name="Full Name" class="form-control" placeholder="Your name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="quote-email">Email</label>
+                                    <input type="email" id="quote-email" name="Email" class="form-control" placeholder="you@email.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="quote-phone">Phone</label>
+                                    <input type="tel" id="quote-phone" name="Phone" class="form-control" placeholder="987-147-9633">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="quote-project-type">Project Type</label>
+                                    <select id="quote-project-type" name="Project Type" class="form-select">
+                                        <option value="Commercial build-out">Commercial build-out</option>
+                                        <option value="Residential">Residential</option>
+                                        <option value="Drywall & spackle">Drywall & spackle</option>
+                                        <option value="Acoustical ceilings">Acoustical ceilings</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="quote-message">How can we help?</label>
+                                    <textarea id="quote-message" name="Project Details" rows="4" class="form-control" placeholder="Tell us about your project, timeline, or any specs we should know." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex flex-wrap align-items-center gap-3">
+                                        <button type="submit" class="btn btn-secondary">Send Request</button>
+                                        <p class="mb-0 small contact-note">We'll tailor an estimate and reach out quickly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="gallery-lightbox" data-gallery-lightbox aria-hidden="true">
         <div class="lightbox-inner">
             <div class="lightbox-media">
