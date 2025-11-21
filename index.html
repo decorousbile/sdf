@@ -138,6 +138,7 @@
             font-weight: 600;
             margin: 0 15px;
             position: relative;
+            padding: 10px 12px;
             transition: color 0.3s;
         }
         .nav-link:before {
@@ -865,12 +866,18 @@
                 padding: 16px 0;
             }
             .navbar .navbar-nav {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 8px 12px;
                 align-items: center;
+                justify-items: center;
             }
             .navbar .nav-link {
                 color: var(--accent-color) !important;
                 padding: 10px 0;
+                margin:0;
                 width: 100%;
+                text-align: center;
             }
             .navbar .btn-primary {
                 background-color: var(--secondary-color);
@@ -882,6 +889,13 @@
             .navbar .btn-primary:hover {
                 background-color: #e46a39;
                 border-color: #e46a39;
+            }
+            .navbar .nav-cta-mobile {
+                width: auto;
+                margin-top: 0;
+                padding: 8px 16px;
+                background-color: var(--secondary-color);
+                border-color: var(--secondary-color);
             }
         }
         @media (max-width: 992px) {
@@ -904,6 +918,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="rtya.png" alt="logo"/></a>
+            <a href="#quoteModal" class="btn btn-primary nav-cta-mobile d-lg-none ms-auto me-2" data-bs-toggle="modal" data-bs-target="#quoteModal">Get a Quote</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -916,8 +931,9 @@
                     <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link" href="#ourwork">Our Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <a href="#quoteModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quoteModal">Get a Quote</a>
+                <a href="#quoteModal" class="btn btn-primary d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#quoteModal">Get a Quote</a>
             </div>
         </div>
     </nav>
