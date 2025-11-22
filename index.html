@@ -1440,6 +1440,19 @@
         } else if (processTimeline) {
             processTimeline.classList.add('process-visible');
         }
+        // Collapse mobile menu after selecting a link
+        const navbarCollapse = document.getElementById('navbarNav');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        if (navbarCollapse && navbarToggler) {
+            navbarCollapse.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    const togglerVisible = window.getComputedStyle(navbarToggler).display !== 'none';
+                    if (!togglerVisible) return;
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                    bsCollapse.hide();
+                });
+            });
+        }
     </script>
 </body>
 </html>
