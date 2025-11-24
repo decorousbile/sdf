@@ -895,27 +895,36 @@
             }
             .navbar .navbar-toggler {
                 border-color: rgba(255, 255, 255, 0.8);
+                background-color: transparent;
+                box-shadow: none;
             }
             .navbar .navbar-toggler-icon {
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
+            .navbar .navbar-toggler:focus,
+            .navbar .navbar-toggler:active {
+                outline: none;
+                box-shadow: 0 0 0 1px #ffffff8f;
+            }
             .navbar .navbar-collapse {
                 background-color: var(--primary-color);
-                text-align: center;
-                padding: 16px 0;
+                text-align: left;
+                padding: 16px 12px;
             }
             .navbar .navbar-nav {
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
-                align-items: stretch;
+                align-items: flex-start;
+                width: 100%;
+                margin: 0;
             }
             .navbar .nav-link {
                 color: var(--accent-color) !important;
                 padding: 10px 10px;
                 margin: 0;
                 width: 100%;
-                text-align: center;
+                text-align: left;
             }
             .navbar .btn-primary {
                 background-color: var(--secondary-color);
@@ -930,10 +939,13 @@
             }
             .navbar .nav-cta-mobile {
                 width: auto;
-                margin-top: 0;
+                margin: 0 auto;
                 padding: 8px 30px;
                 background-color: var(--secondary-color);
                 border-color: var(--secondary-color);
+            }
+            .navbar-brand{
+                margin-right: 0;
             }
         }
         @media (max-width: 992px) {
@@ -956,7 +968,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="rtya.png" alt="logo"/></a>
-            <a href="#quoteModal" class="btn btn-primary nav-cta-mobile d-lg-none ms-auto me-2" data-bs-toggle="modal" data-bs-target="#quoteModal">Get a Quote</a>
+            <a href="#quoteModal" class="btn btn-primary nav-cta-mobile d-lg-none ms-auto" data-bs-toggle="modal" data-bs-target="#quoteModal">Get a Quote</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
